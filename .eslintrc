@@ -1,0 +1,23 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "no-unused-vars": "warn",
+    "implicit-arrow-linebreak": "off",
+    "import/prefer-default-export": "off",
+    "spaced-comment": "off",
+    "object-curly-newline": "off",
+    "no-multiple-empty-lines": "off",
+    "comma-dangle": "off",
+    "import/no-extraneous-dependencies": off,
+    "padded-blocks": off,
+    "object-curly-spacing": off,
+    "key-spacing": off
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "commonjs": true,
+    "es6": true
+  }
+}

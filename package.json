@@ -1,0 +1,39 @@
+{
+  "name": "object-list-utils",
+  "version": "1.0.0",
+  "description": "Javascript utils for interacting with lists of objects",
+  "main": "src/index.js",
+  "repository": "https://github.com/SteveAtSentosa/object-list-utils.git",
+  "author": "Steven Saunders <steve@sentosatech.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "clean": "rimraf es dist",
+    "build:es": "cross-env NODE_ENV=production babel src --out-dir es",
+    "build:dist": "webpack",
+    "build": "npm run build:es && npm run build:dist",
+    "test": "mocha --require babel-core/register"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
+    "env": "^0.0.2",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-mocha": "^5.2.0",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.2",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "ramda": "^0.25.0",
+    "ramda-adjunct": "^2.9.0"
+  }
+}
