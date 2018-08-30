@@ -12,9 +12,14 @@
     "build:es": "cross-env NODE_ENV=production babel src --out-dir es",
     "build:dist": "webpack",
     "build": "npm run build:es && npm run build:dist",
-    "test": "mocha --require babel-core/register"
+    "test": "mocha --require babel-core/register",
+    "test:examples": "babel-node docs/genReadmeExamples.js",
+    "watch:test": "onchange 'src/objectListUtils.js' 'test/*.js' -- npm test",
+    "watch:examples": "onchange 'docs/genReadmeExamples.js' -- npm run test:examples"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -28,6 +33,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-mocha": "^5.2.0",
     "mocha": "^5.2.0",
+    "onchange": "^4.1.0",
     "rimraf": "^2.6.2",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0"

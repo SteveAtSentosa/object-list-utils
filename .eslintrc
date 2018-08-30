@@ -11,7 +11,11 @@
     "import/no-extraneous-dependencies": off,
     "padded-blocks": off,
     "object-curly-spacing": off,
-    "key-spacing": off
+    "key-spacing": off,
+    "arrow-spacing": off,
+    "no-console": off,
+    "no-lone-blocks": off,
+    "array-bracket-spacing": off
   },
   "env": {
     "browser": true,
