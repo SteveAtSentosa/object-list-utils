@@ -19,6 +19,7 @@ const peopleWithPets = [{name:'Bob', pet:{ type:'dog' }}, {name:'Jane', pet:{ ty
 const catLover = findByPath(['pet', 'type'], 'cat', peopleWithPets); //=> { id: 3, name: 'Jane', age: 22 }
 ```
 
+object-list-utils does these things and more.  Have a look below.
 
 **Notes**
 
