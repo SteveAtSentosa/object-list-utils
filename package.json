@@ -1,6 +1,6 @@
 {
   "name": "object-list-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Javascript utils for interacting with lists of objects",
   "main": "src/index.js",
   "repository": "https://github.com/SteveAtSentosa/object-list-utils.git",
