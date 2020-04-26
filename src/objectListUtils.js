@@ -9,8 +9,8 @@ import { lensEq } from 'ramda-adjunct';
 
 // return index of first object in list with matching propName[propVal], or -1 if no match
 // '' -> a -> [{}] -> int
-export const idxByProp = curry((prop, propVal, objList) =>
-  findIndex(propEq(prop, propVal), objList));
+export const idxByProp = curry((propName, propVal, objList) =>
+  findIndex(propEq(propName, propVal), objList));
 
 // return index of first object in list with matching path[0].path[1].path[...][propVal,
 // or -1 if no match
@@ -29,8 +29,8 @@ export const idxByLens = curry((lens, propVal, objList) =>
 
 // return true if one of the objects in list has matching propName[propVal], otherwise return false
 // '' -> a -> [{}] -> bool
-export const containsByProp = curry((prop, propVal, objList) =>
-  idxByProp(prop, propVal, objList) > -1);
+export const containsByProp = curry((propName, propVal, objList) =>
+  idxByProp(propName, propVal, objList) > -1);
 
 // return true if one of the objects in list has matching path[0].path[1].path[...][propVal]
 // otherwise return false
@@ -51,8 +51,8 @@ export const containsByLens = curry((lens, propVal, objList) =>
 
 // return first object in list with matching propName[propVal], or undefined if no matches
 // '' -> a -> [{}] -> {}
-export const findByProp = curry((prop, propVal, objList) =>
-  find(propEq(prop, propVal), objList));
+export const findByProp = curry((propName, propVal, objList) =>
+  find(propEq(propName, propVal), objList));
 
 // return first object in list with matching path[0].path[1].path[...][propVal]
 // or undefined if no matches
@@ -71,7 +71,7 @@ export const findByLens = curry((lens, propVal, objList) =>
 //   filter(propNotEq(propName, propVal),objList));
 
 //******************************************************************************
-// Utils dealing with lists of objects with 'id' prop
+// Utils dealing with lists of objects with 'id' propName
 //******************************************************************************
 
 // return index of first obj in list with matching id, -1 if no match
@@ -85,3 +85,13 @@ export const containsById = containsByProp('id');
 // return first object in list with matching id, or undefined if no matches
 // id -> [{}] -> {}
 export const findById = findByProp('id');
+
+//******************************************************************************
+// Misc Utils
+//******************************************************************************
+
+export const propMaxVal = curry((propName, objList) =>
+  Math.max(...objList.map(obj => obj[propName])))
+
+export const propMinVal = curry((propName, objList) =>
+  Math.min(...objList.map(obj => obj[propName])))

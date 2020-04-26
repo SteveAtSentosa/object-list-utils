@@ -7,19 +7,6 @@
   "author": "Steven Saunders <steve@sentosatech.com>",
   "license": "MIT",
   "private": false,
-  "scripts": {
-    "clean": "rimraf es dist lib",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:umd": "webpack --mode=development --output-filename=object-list-utils.js",
-    "build:umd:min": "webpack --mode=production --output-filename=object-list-utils.min.js",
-    "build": "npm run build:cjs && npm run build:es && npm run build:umd && npm run build:umd:min",
-    "prepub": "npm run clean && npm test && npm run build",
-    "test": "mocha --compilers js:@babel/register",
-    "test:examples": "babel-node docs/genReadmeExamples.js",
-    "watch:test": "onchange 'src/objectListUtils.js' 'test/*.js' -- npm test",
-    "watch:examples": "onchange 'docs/genReadmeExamples.js' -- npm run test:examples"
-  },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.1",
@@ -42,5 +29,18 @@
   "dependencies": {
     "ramda": "^0.25.0",
     "ramda-adjunct": "^2.9.0"
+  },
+  "scripts": {
+    "clean": "rimraf es dist lib",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build:umd": "webpack --mode=development --output-filename=object-list-utils.js",
+    "build:umd:min": "webpack --mode=production --output-filename=object-list-utils.min.js",
+    "build": "npm run build:cjs && npm run build:es && npm run build:umd && npm run build:umd:min",
+    "prepub": "npm run clean && npm test && npm run build",
+    "test": "mocha --compilers js:@babel/register",
+    "test:examples": "babel-node docs/genReadmeExamples.js",
+    "watch:test": "onchange 'src/objectListUtils.js' 'test/*.js' -- npm test",
+    "watch:examples": "onchange 'docs/genReadmeExamples.js' -- npm run test:examples"
   }
 }

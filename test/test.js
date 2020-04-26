@@ -4,7 +4,8 @@ import {
   idxByProp, idxByPath, idxByLens,
   containsByProp, containsByPath, containsByLens,
   findByProp, findByPath, findByLens,
-  idxById, containsById, findById
+  idxById, containsById, findById,
+  propMaxVal, propMinVal
 } from '../src/index';
 
 const odeep = idx => ({d1:{d2:{d3:{ final: `deep_${idx}`}}}});
@@ -88,5 +89,16 @@ describe('Objects with id props...', () => {
     expect(idxById(4, objList)).to.equal(4);
     expect(containsById(2, objList)).to.equal(true);
     expect(findById(1, objList)).to.equal(o1);
+  });
+});
+
+describe('Misc object utils ...', () => {
+  it('should find list min/max by prop', () => {
+    const valList = [ {v: -1}, {v: 3}, {v: 4}, {v: 4.01}, ];
+    expect(propMinVal('v', valList)).to.equal(-1);
+    expect(propMaxVal('v', valList)).to.equal(4.01);
+
+
+
   });
 });
